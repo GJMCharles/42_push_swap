@@ -22,8 +22,8 @@ FTPRINTF_SRC := ./ftprintf
 
 LDFLAGS := -I. -I$(FTPRINTF_SRC) -I$(LIBFT_SRC)
 LDLIBS := \
-	-L$(LIBFT_SRC) -lft \
-	-L$(FTPRINTF_SRC) -lftprintf
+	-L $(LIBFT_SRC) -lft \
+	-L $(FTPRINTF_SRC) -lftprintf
 
 SOURCES := push_swap.c
 
@@ -32,7 +32,7 @@ OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 all: LIBS $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@ $(LDLIBS)
 
 LIBS:
 	@make -C $(LIBFT_SRC) all
