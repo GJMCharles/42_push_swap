@@ -20,12 +20,14 @@ MAKEFLAGS := --no-print-directory
 LIBFT_SRC := ./libft
 FTPRINTF_SRC := ./ftprintf
 
-LDFLAGS := -I. -I$(FTPRINTF_SRC) -I$(LIBFT_SRC)
+LDFLAGS := -I. -I$(LIBFT_SRC) -I$(FTPRINTF_SRC)
 LDLIBS := \
-	-L $(LIBFT_SRC) -lft \
-	-L $(FTPRINTF_SRC) -lftprintf
+	-L$(LIBFT_SRC) -lft \
+	-L$(FTPRINTF_SRC) -lftprintf
 
-SOURCES := push_swap.c
+SOURCES := \
+	push_swap.c \
+	utils.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 
@@ -39,6 +41,7 @@ LIBS:
 	@make -C $(FTPRINTF_SRC) all
 
 $(NAME): $(OBJECTS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
 
 clean:
 	@make -C $(LIBFT_SRC) clean
