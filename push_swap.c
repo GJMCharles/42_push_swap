@@ -6,7 +6,7 @@
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 23:59:33 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/19 23:59:36 by grcharle         ###   ########.fr       */
+/*   Updated: 2025/10/21 23:58:08 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char *argv[])
 {
     (void) argv;
-
     if (argc < 2)
         error_found("Invalid argument");
     return (EXIT_SUCCESS);
