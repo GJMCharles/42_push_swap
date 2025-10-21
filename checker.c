@@ -14,9 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-	(void) argv;
+    (void) argv;
 
-	if (argc < 2)
-		ft_putstr_fd("TEST", STDOUT_FILENO);
-	return (0);
+    if (argc < 2)
+        error_found("Invalid argument");
+    return (EXIT_SUCCESS);
 }

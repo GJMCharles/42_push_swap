@@ -14,7 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-	(void) argc;
-	(void) argv;
-	return (0);
+    (void) argv;
+
+    if (argc < 2)
+        error_found("Invalid argument");
+    return (EXIT_SUCCESS);
 }
