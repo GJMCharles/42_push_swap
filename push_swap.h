@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
-# include "printf.h"
+
+void	error_found(char *message);
 
 #endif // PUSH_SWAP_H

@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 NAME := push_swap
+NAME_BONUS := checker
 
 RM := rm -frv
 CC := cc
@@ -18,12 +19,9 @@ CFLAGS := -Wall -Wextra -Werror
 MAKEFLAGS := --no-print-directory
 
 LIBFT_SRC := ./libft
-FTPRINTF_SRC := ./ftprintf
 
-LDFLAGS := -I. -I$(LIBFT_SRC) -I$(FTPRINTF_SRC)
-LDLIBS := \
-	-L$(LIBFT_SRC) -lft \
-	-L$(FTPRINTF_SRC) -lftprintf
+LDFLAGS := -I. -I$(LIBFT_SRC)
+LDLIBS := -L$(LIBFT_SRC) -lft
 
 SOURCES := \
 	push_swap.c \
@@ -33,26 +31,25 @@ OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 
 all: LIBS $(NAME)
 
+bonus:
+
 %.o: %.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@ $(LDLIBS)
 
 LIBS:
 	@make -C $(LIBFT_SRC) all
-	@make -C $(FTPRINTF_SRC) all
 
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
 
 clean:
 	@make -C $(LIBFT_SRC) clean
-	@make -C $(FTPRINTF_SRC) clean
 	@$(RM) $(OBJECTS)
 
 fclean: clean
 	@make -C $(LIBFT_SRC) fclean
-	@make -C $(FTPRINTF_SRC) fclean
 	@$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 21:35:33 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/21 21:35:35 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/19 23:59:33 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/21 23:41:34 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_found(char *message)
+int	main(int argc, char *argv[])
 {
-	ft_putendl_fd(message, STDOUT_FILENO);
-	exit(EXIT_FAILURE);
+	(void) argv;
+
+	if (argc < 2)
+		ft_putstr_fd("TEST", STDOUT_FILENO);
+	return (0);
 }
