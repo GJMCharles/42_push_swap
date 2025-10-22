@@ -71,5 +71,6 @@ int is_distinct_tab(int *tab)
     /*
     // TEST
     */
+    free(test_tab);
     return (1);
 }
