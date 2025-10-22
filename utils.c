@@ -12,8 +12,24 @@
 
 #include "push_swap.h"
 
-void	error_found(char *message)
+void	error_found(void)
 {
-    ft_putendl_fd(message, STDOUT_FILENO);
+    ft_putendl_fd("Error", STDOUT_FILENO);
     exit(EXIT_FAILURE);
+}
+
+int is_number(const char *str)
+{
+    int	i;
+
+    i = 0;
+    if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]))
+        i += 1;
+    while (str[i] != '\0')
+    {
+        if (!ft_isdigit(str[i]))
+            return (0);
+        i += 1;
+    }
+    return (1);
 }

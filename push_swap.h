@@ -15,6 +15,7 @@
 
 # include "libft.h"
 
-void	error_found(char *message);
+void    error_found(void);
+int     is_number(const char *str);
 
 #endif // PUSH_SWAP_H

@@ -16,6 +16,6 @@ int	main(int argc, char *argv[])
 {
     (void) argv;
     if (argc < 2)
-        error_found("Invalid argument");
+        error_found();
     return (EXIT_SUCCESS);
 }

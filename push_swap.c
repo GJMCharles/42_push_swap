@@ -11,11 +11,18 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	main(int argc, char *argv[])
 {
-    (void) argv;
+    int i;
+
     if (argc < 2)
-        error_found("Invalid argument");
+        error_found();
+    i = 1;
+    while (i++ < argc)
+    {
+        printf("%d\n", ft_atoi(argv[i - 1]));
+    }
     return (EXIT_SUCCESS);
 }
