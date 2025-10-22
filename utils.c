@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void	error_found(void)
+void error_found(void)
 {
     ft_putendl_fd("Error", STDOUT_FILENO);
     exit(EXIT_FAILURE);
 }
 
-int	is_number(const char *str)
+int is_number(const char *str)
 {
-    int	i;
+    int i;
 
     i = 0;
     if ((str[i] == '-') && ft_isdigit(str[i + 1]))
@@ -34,12 +34,12 @@ int	is_number(const char *str)
     return (1);
 }
 
-int	*get_number_tab(int argc, char **argv)
+int *get_number_tab(int argc, char **argv)
 {
-    int	*tab;
-    int	i;
+    int *tab;
+    int i;
 
-    tab = (int *) ft_calloc(sizeof(int), argc);
+    tab = (int *)ft_calloc(sizeof(int), argc);
     if (!tab)
         return ((void *)0);
     i = 0;
@@ -55,8 +55,21 @@ int	*get_number_tab(int argc, char **argv)
     return (tab);
 }
 
-int	is_distinct_tab(int *tab)
+int is_distinct_tab(int *tab)
 {
-    (void) tab;
-    return (0);
+    unsigned int	i;
+    unsigned int	j;
+    int				*test_tab;
+
+    i = 0;
+    while (tab[i] != '\0')
+        i += 1;
+    test_tab = (int *) ft_calloc(sizeof(int), i + 1);
+    if (!test_tab)
+        return (0);
+    i = 0;
+    /*
+    // TEST
+    */
+    return (1);
 }

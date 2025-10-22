@@ -26,4 +26,5 @@ int		is_number(const char *str);
 int		*get_number_tab(int argc, char **argv);
 int		is_distinct_tab(int *tab);
 void	push_swap(int *tab);
+
 #endif // PUSH_SWAP_H
