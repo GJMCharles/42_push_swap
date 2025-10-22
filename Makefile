@@ -24,6 +24,7 @@ LDFLAGS := -I. -I$(LIBFT_SRC)
 LDLIBS := -L$(LIBFT_SRC) -lft
 
 SOURCES := \
+	main.c \
 	push_swap.c \
 	utils.c \
 

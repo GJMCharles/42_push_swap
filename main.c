@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 23:59:40 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/19 23:59:41 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/19 23:59:33 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/23 01:04:35 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-
-typedef struct s_ps_list
+int	main(int argc, char *argv[])
 {
-    int				value;
-    unsigned int	pos;
-}	t_ps_list;
+    int	*tab;
 
-void    error_found(void);
-int     is_number(const char *str);
-int		*get_number_tab(int argc, char **argv);
-int		is_distinct_tab(int *tab);
-void	push_swap(int *tab);
-#endif // PUSH_SWAP_H
+    if (argc < 2)
+        error_found();
+    tab = get_number_tab(argc, argv);
+    if (!tab)
+        error_found();
+    if (is_distinct_tab(tab))
+        push_swap(tab);
+    free(tab);
+    return (EXIT_SUCCESS);
+}
