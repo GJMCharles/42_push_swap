@@ -18,7 +18,7 @@ void	error_found(void)
     exit(EXIT_FAILURE);
 }
 
-int		is_number(const char *str)
+int	is_number(const char *str)
 {
     int	i;
 
@@ -34,7 +34,7 @@ int		is_number(const char *str)
     return (1);
 }
 
-int		*get_number_tab(int argc, char **argv)
+int	*get_number_tab(int argc, char **argv)
 {
     int	*tab;
     int	i;
@@ -55,7 +55,7 @@ int		*get_number_tab(int argc, char **argv)
     return (tab);
 }
 
-int		is_distinct_tab(int *tab)
+int	is_distinct_tab(int *tab)
 {
     (void) tab;
     return (0);

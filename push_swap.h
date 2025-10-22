@@ -21,8 +21,8 @@ typedef struct s_ps_list
     unsigned int	pos;
 }	t_ps_list;
 
-void    error_found(void);
-int     is_number(const char *str);
+void	error_found(void);
+int		is_number(const char *str);
 int		*get_number_tab(int argc, char **argv);
 int		is_distinct_tab(int *tab);
 void	push_swap(int *tab);
