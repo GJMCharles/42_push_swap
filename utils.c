@@ -58,7 +58,6 @@ int *get_number_tab(int argc, char **argv)
 int is_distinct_tab(int *tab)
 {
     unsigned int	i;
-    unsigned int	j;
     int				*test_tab;
 
     i = 0;
