@@ -34,7 +34,7 @@ int is_number(const char *str)
     return (1);
 }
 
-int *get_number_tab(int argc, char **argv)
+int *get_number_tab(int argc, char **argv, unsigned int *len)
 {
     int *tab;
     int i;
@@ -52,24 +52,33 @@ int *get_number_tab(int argc, char **argv)
         }
         tab[i - 1] = ft_atoi(argv[i]);
     }
+    *len = i;
     return (tab);
 }
 
-int is_distinct_tab(int *tab)
+int is_distinct_tab(int *tab, unsigned int len)
 {
-    unsigned int	i;
-    int				*test_tab;
+    int *test_tab;
+    unsigned int i;
+    unsigned int j;
 
-    i = 0;
-    while (tab[i] != '\0')
-        i += 1;
-    test_tab = (int *) ft_calloc(sizeof(int), i + 1);
+    test_tab = (int *)ft_calloc(sizeof(int), len + 1);
     if (!test_tab)
         return (0);
     i = 0;
-    /*
-    // TEST
-    */
+    while (i++ < (len - 1))
+    {
+        j = 0;
+        while (j++ < (i - 1))
+        {
+            if (test_tab[j - 1] == tab[i - 1])
+            {
+                free(test_tab);
+                return (0);
+            }
+        }
+        test_tab[j - 1] = tab[i - 1];
+    }
     free(test_tab);
     return (1);
 }

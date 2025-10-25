@@ -15,16 +15,16 @@
 
 # include "libft.h"
 
-typedef struct s_ps_list
+typedef struct s_pslist
 {
     int				value;
     unsigned int	pos;
-}	t_ps_list;
+}	t_pslist;
 
 void	error_found(void);
 int		is_number(const char *str);
-int		*get_number_tab(int argc, char **argv);
-int		is_distinct_tab(int *tab);
+int		*get_number_tab(int argc, char **argv, unsigned int *len);
+int		is_distinct_tab(int *tab, unsigned int len);
 void	push_swap(int *tab);
 
 #endif // PUSH_SWAP_H

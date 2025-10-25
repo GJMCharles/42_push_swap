@@ -14,15 +14,17 @@
 
 int	main(int argc, char *argv[])
 {
-    int	*tab;
+    unsigned int len;
+    int			*tab;
 
     if (argc < 2)
         error_found();
-    tab = get_number_tab(argc, argv);
+    tab = get_number_tab(argc, argv, &len);
     if (!tab)
         error_found();
-    if (is_distinct_tab(tab))
-        push_swap(tab);
+    if (!is_distinct_tab(tab, len))
+        error_found();
+    push_swap(tab);
     free(tab);
     return (EXIT_SUCCESS);
 }
