@@ -14,9 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-    (void) argv;
-    if (argc < 2)
-        error_found();
-    return (EXIT_SUCCESS);
-    // TEST
+	(void) argv;
+	if (argc < 2)
+		error_found();
+	return (EXIT_SUCCESS);
+	// TEST
 }

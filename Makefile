@@ -35,7 +35,7 @@ all: LIBS $(NAME)
 bonus:
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@ $(LDLIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -c $< -o $@
 
 LIBS:
 	@make -C $(LIBFT_SRC) all
