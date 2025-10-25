@@ -22,9 +22,11 @@ int	main(int argc, char *argv[])
     tab = get_number_tab(argc, argv, &len);
     if (!tab)
         error_found();
-    if (!is_distinct_tab(tab, len))
+    if (!is_distinct_tab(tab, len) || !push_swap(tab, len))
+    {
+        free(tab);
         error_found();
-    push_swap(tab);
+    }
     free(tab);
     return (EXIT_SUCCESS);
 }

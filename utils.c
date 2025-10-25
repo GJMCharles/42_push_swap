@@ -52,7 +52,7 @@ int *get_number_tab(int argc, char **argv, unsigned int *len)
         }
         tab[i - 1] = ft_atoi(argv[i]);
     }
-    *len = i;
+    *len = (i - 1);
     return (tab);
 }
 

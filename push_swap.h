@@ -25,6 +25,7 @@ void	error_found(void);
 int		is_number(const char *str);
 int		*get_number_tab(int argc, char **argv, unsigned int *len);
 int		is_distinct_tab(int *tab, unsigned int len);
-void	push_swap(int *tab);
+int		push_swap(int *tab, unsigned int size);
+void	delete_item(t_pslist *list);
 
 #endif // PUSH_SWAP_H
