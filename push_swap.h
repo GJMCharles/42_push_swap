@@ -13,8 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
-#include "libft.h"
+# include <stdio.h>
+# include "libft.h"
 
 typedef struct s_pslist
 {
@@ -22,11 +22,13 @@ typedef struct s_pslist
 	unsigned int	pos;
 }	t_pslist;
 
-void	error_found(void);
-int		is_number(const char *str);
-int		*get_number_tab(int argc, char **argv, unsigned int *len);
-int		is_distinct_tab(int *tab, unsigned int len);
-int		push_swap(int *tab, unsigned int size);
-void	delete_item(t_pslist *list);
+void		error_found(void);
+int			is_number(const char *str);
+int			*get_number_tab(int argc, char **argv, unsigned int *len);
+int			is_distinct_tab(int *tab, unsigned int len);
+int			push_swap(int *tab, unsigned int size);
+t_pslist	*create_item(unsigned int pos, int value);
+t_list		*delete_list(t_list *list);
+t_list		*build_list(int *tab, unsigned int size);
 
 #endif // PUSH_SWAP_H

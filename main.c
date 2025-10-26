@@ -14,8 +14,8 @@
 
 int	main(int argc, char *argv[])
 {
-	unsigned int len;
-	int			*tab;
+	unsigned int	len;
+	int				*tab;
 
 	if (argc < 2)
 		error_found();
