@@ -12,13 +12,19 @@
 
 #include "push_swap.h"
 
-int	push_swap(int *tab, unsigned int size)
+void	display_item(t_pslist *item)
 {
-	t_list	*a;
+    printf("%u ~ %i\n", item->pos, item->value);
+}
 
-	a = build_list(tab, size);
-	if (!a)
-		return (0);
-	ft_lstclear(&a, free);
-	return (1);
+int		push_swap(int *tab, unsigned int size)
+{
+    t_list	*a;
+
+    a = build_list(tab, size);
+    if (!a)
+        return (0);
+    ft_lstiter(a, (void *)display_item);
+    ft_lstclear(&a, free);
+    return (1);
 }

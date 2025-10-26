@@ -26,6 +26,7 @@ LDLIBS := -L$(LIBFT_SRC) -lft
 SOURCES := \
 	main.c \
 	push_swap.c \
+	list_builder.c \
 	utils.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
