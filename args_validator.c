@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-long long int	ft_aton(const char *nptr)
+long long int	ft_atonb(const char *nptr)
 {
 	int				i;
 	int				neg;

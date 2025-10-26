@@ -30,6 +30,7 @@ t_list			*build_list(int *tab, unsigned int size);
 t_list			*delete_list(t_list *list);
 t_pslist		*create_item(unsigned int pos, int value);
 int				push_swap(int *tab, unsigned int size);
-long long int	ft_aton(const char *nptr);
+long long int	ft_atonb(const char *nptr);
+void			swap_solver(t_list **a, t_list **b);
 
 #endif // PUSH_SWAP_H

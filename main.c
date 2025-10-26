@@ -20,13 +20,22 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		error_found();
 	tab = get_integer_tab(argc, argv, &len);
+	printf("1\n");
 	if (!tab)
 		error_found();
-	if (!is_distinct_tab(tab, len) || !push_swap(tab, len - 1))
+	printf("2\n");
+	if (!is_distinct_tab(tab, len))
 	{
 		free(tab);
 		error_found();
 	}
+	printf("3\n");
+	if (!push_swap(tab, len))
+	{
+		free(tab);
+		error_found();
+	}
+	printf("4\n");
 	free(tab);
 	return (EXIT_SUCCESS);
 }

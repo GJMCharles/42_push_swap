@@ -39,7 +39,7 @@ t_list	*build_list(int *tab, unsigned int size)
 	t_pslist		*tmp_content;
 
 	i = 0;
-	while (i < size)
+	while (i < (size - 1))
 	{
 		tmp_content = create_item(i, tab[i]);
 		if (!tmp_content)

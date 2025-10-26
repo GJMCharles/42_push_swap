@@ -42,10 +42,51 @@ int	is_number(const char *str)
 	return (1);
 }
 
-int	*get_integer_tab(int argc, char **argv, unsigned int *len)
+int *fetch_from_stingle_string_arg(char *arg1, unsigned int *len)
 {
-	int				i;
+	unsigned int	i;
+	unsigned int	empty;
+	unsigned int	x;
+	int				start;
+	int				end;
+
+	i = 0;
+	
+	x = 0;
+	start = 0;
+	end = 0;
+	empty = 0;
+	while (arg1[i++] != '\0')
+	{
+		if (ft_isdigit(arg1[i - 1]) || \
+			((arg1[i - 1] == '-') && ft_isdigit(arg1[i])))
+		{
+			if (empty == 0)
+				start = (i - 1);
+			if (arg1[i] == ' ' || arg1[i] == '\0')
+			{
+				end = i;
+				printf("{%d}~ [%d]_[%d]\n", (end - start), start, end);
+				empty = 0;
+			}
+		}
+		else if (arg1[i - 1] == ' ')
+			empty = 0;
+		else
+		{
+			printf("%c", arg1[i - 1]);
+			return ((int *)(void *)0);
+		}
+	}
+	printf("...\n");
+	*len = 1;
+	return ((int *)(void *)0);
+}
+
+int	*fetch_from_multiple_args(int argc, char **argv, unsigned int *len)
+{
 	int				*tab;
+	int				i;
 	long long int	value;
 
 	tab = (int *)ft_calloc(sizeof(int), argc);
@@ -59,8 +100,8 @@ int	*get_integer_tab(int argc, char **argv, unsigned int *len)
 			free(tab);
 			return ((int *)(void *)0);
 		}
-		value = ft_aton(argv[i]);
-		if ((value < -2147483647) || (value > 2147483648))
+		value = ft_atonb(argv[i]);
+		if ((value < -2147483648) || (value > 2147483647))
 		{
 			free(tab);
 			return ((int *)(void *)0);
@@ -68,6 +109,17 @@ int	*get_integer_tab(int argc, char **argv, unsigned int *len)
 		tab[i - 1] = (int) value;
 	}
 	*len = i;
+	return (tab);
+}
+
+int	*get_integer_tab(int argc, char **argv, unsigned int *len)
+{	
+	int				*tab;
+
+	if (argc == 2)
+		tab = fetch_from_stingle_string_arg(argv[1], &(*len));
+	else
+		tab = fetch_from_multiple_args(argc, argv, &(*len));
 	return (tab);
 }
 
