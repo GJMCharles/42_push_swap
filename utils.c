@@ -16,7 +16,11 @@ void	error_found(void)
 {
 	char	message[6];
 
-	message[] = "Error";
+	message[0] = 'E';
+	message[1] = 'r';
+	message[2] = 'r';
+	message[3] = 'o';
+	message[4] = 'r';
 	ft_putendl_fd(message, STDOUT_FILENO);
 	exit(EXIT_FAILURE);
 }
@@ -44,14 +48,14 @@ int	*get_number_tab(int argc, char **argv, unsigned int *len)
 
 	tab = (int *)ft_calloc(sizeof(int), argc);
 	if (!tab)
-		return ((void *)0);
+		return ((int *)(void *)0);
 	i = 0;
 	while (++i < argc)
 	{
 		if (!is_number(argv[i]))
 		{
 			free(tab);
-			return ((void *)0);
+			return ((int *)(void *)0);
 		}
 		tab[i - 1] = ft_atoi(argv[i]);
 	}
