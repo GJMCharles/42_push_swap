@@ -14,19 +14,19 @@
 
 int	main(int argc, char *argv[])
 {
-    unsigned int	len;
-    int				*tab;
+	unsigned int	len;
+	int				*tab;
 
-    if (argc < 2)
-        error_found();
-    tab = get_integer_tab(argc, argv, &len);
-    if (!tab)
-        error_found();
-    if (!is_distinct_tab(tab, len) || !push_swap(tab, len - 1))
-    {
-        free(tab);
-        error_found();
-    }
-    free(tab);
-    return (EXIT_SUCCESS);
+	if (argc < 2)
+		error_found();
+	tab = get_integer_tab(argc, argv, &len);
+	if (!tab)
+		error_found();
+	if (!is_distinct_tab(tab, len) || !push_swap(tab, len - 1))
+	{
+		free(tab);
+		error_found();
+	}
+	free(tab);
+	return (EXIT_SUCCESS);
 }

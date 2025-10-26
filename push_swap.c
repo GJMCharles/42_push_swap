@@ -14,17 +14,17 @@
 
 void	display_item(t_pslist *item)
 {
-    printf("%u ~ %i\n", item->pos, item->value);
+	printf("%u ~ %i\n", item->pos, item->value);
 }
 
-int		push_swap(int *tab, unsigned int size)
+int	push_swap(int *tab, unsigned int size)
 {
-    t_list	*a;
+	t_list	*a;
 
-    a = build_list(tab, size);
-    if (!a)
-        return (0);
-    ft_lstiter(a, (void *)display_item);
-    ft_lstclear(&a, free);
-    return (1);
+	a = build_list(tab, size);
+	if (!a)
+		return (0);
+	ft_lstiter(a, (void *)display_item);
+	ft_lstclear(&a, free);
+	return (1);
 }

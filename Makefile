@@ -27,6 +27,7 @@ SOURCES := \
 	main.c \
 	push_swap.c \
 	list_builder.c \
+	args_validator.c \
 	utils.c \
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))

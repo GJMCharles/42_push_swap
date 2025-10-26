@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   args_validator.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 23:12:18 by grcharle          #+#    #+#             */
-/*   Updated: 2025/05/02 08:54:59 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/26 19:46:38 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/26 19:48:48 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long long int	ft_aton(const char *nptr)
 {
-	int	i;
-	int	neg;
-	int	nb;
+	int				i;
+	int				neg;
+	long long int	nb;
 
 	i = 0;
 	nb = 0;
