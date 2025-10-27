@@ -18,15 +18,24 @@
 // 		return (0);
 // 	return (((t_pslist *)item)->value != ft_atoi(value));
 // }
-void	is_unique_value(void)
+int	can_append_list(const char *value, t_list **list)
 {
-	//
+	(void) value;
+	(void) *list;
+	return (1);
+}
+
+int	is_valid_integer(const char *value)
+{
+	(void) value;
+	return (1);
 }
 
 void	find_integer(char *arg, int i, int *em, size_t *s, size_t *e, t_list **l)
 {
-	char	*tmp_value;
+	char	*value;
 
+	(void) *l;
 	if (ft_isdigit(arg[i]) || ((arg[i] == '-') && ft_isdigit(arg[i + 1])))
 	{
 		if (*em == 0)
@@ -37,19 +46,16 @@ void	find_integer(char *arg, int i, int *em, size_t *s, size_t *e, t_list **l)
 		if (*em == 1 && (arg[i + 1] == ' ' || arg[i + 1] == '\0'))
 		{
 			*e = i;
-			tmp_value = ft_substr(arg, *s, (*e - *s) + 1);
-			if (lst_is_true(tmp_value, *l, is_unique_value))
-			{
-				printf("TEST\n");
-			}
-			printf("{%s}\n", tmp_value);
-			free(tmp_value);
+			value = ft_substr(arg, *s, (*e - *s) + 1);
+			if (!is_valid_integer(value) || !can_append_list(value, &(*l)))
+				ft_lstclear(&(*l), free);
+			free(value);
 		}
 	}
 	else if (arg[i] == ' ')
 		*em = 0;
-	// else
-	// ft_lstclear(&(*list), free);
+	else
+		ft_lstclear(&(*l), free);
 }
 
 t_list		*extract_integers(int argc, char **argv)
@@ -62,14 +68,22 @@ t_list		*extract_integers(int argc, char **argv)
 	t_list	*list;
 
 	i = 0;
+	(void) argv;
+	list = (t_list *)((void *)0);
 	while (++i < argc)
 	{
 		j = 0;
 		empty = 0;
 		start = 0;
 		end = 0;
-		while (argv[i][j++] != '\0')
-			find_integer(argv[i], (j - 1), &empty, &start, &end, &list);
+		// while (argv[i][j++] != '\0')
+		// {
+		// 	find_integer(argv[i], (j - 1), &empty, &start, &end, &list);
+		// 	if (list == (t_list *)(void *)0)
+		// 		break ;
+		// }
+		// if (list == (t_list *)(void *)0)
+		// 	break ;
 	}
-	return ((t_list *)(void *)0);
+	return (list);
 }

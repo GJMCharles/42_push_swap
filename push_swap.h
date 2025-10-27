@@ -24,8 +24,8 @@ typedef struct s_pslist
 
 void	error_found(void);
 t_list	*extract_integers(int argc, char **argv);
-int		lst_is_true(const char *s, t_list *lst, void (*f)(void));
 
+// int		lst_is_true(const char *s, t_list *lst, void (*f)(void));
 // int				is_number(const char *str);
 // int				*get_integer_tab(int argc, char **argv, unsigned int *len);
 // int				is_distinct_tab(int *tab, unsigned int len);
