@@ -22,15 +22,18 @@ typedef struct s_pslist
 	unsigned int	pos;
 }	t_pslist;
 
-void			error_found(void);
-int				is_number(const char *str);
-int				*get_integer_tab(int argc, char **argv, unsigned int *len);
-int				is_distinct_tab(int *tab, unsigned int len);
-t_list			*build_list(int *tab, unsigned int size);
-t_list			*delete_list(t_list *list);
-t_pslist		*create_item(unsigned int pos, int value);
-int				push_swap(int *tab, unsigned int size);
-long long int	ft_atonb(const char *nptr);
-void			swap_solver(t_list **a, t_list **b);
+void	error_found(void);
+t_list	*extract_integers(int argc, char **argv);
+int		*lst_is_true(char *s, t_list *lst, int (*f)(void *, char *s));
+
+// int				is_number(const char *str);
+// int				*get_integer_tab(int argc, char **argv, unsigned int *len);
+// int				is_distinct_tab(int *tab, unsigned int len);
+// t_list			*build_list(int *tab, unsigned int size);
+// t_list			*delete_list(t_list *list);
+// t_pslist		*create_item(unsigned int pos, int value);
+// int				push_swap(int *tab, unsigned int size);
+// long long int	ft_atonb(const char *nptr);
+// void			swap_solver(t_list **a, t_list **b);
 
 #endif // PUSH_SWAP_H

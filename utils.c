@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	error_found(void)
+void		error_found(void)
 {
 	char	message[6];
 
@@ -26,45 +26,56 @@ void	error_found(void)
 	exit(EXIT_FAILURE);
 }
 
-int	is_number(const char *str)
+int		*lst_is_true(char *s, t_list *lst, int (*f)(void *, char *s))
 {
-	int		i;
-
-	i = 0;
-	if ((str[i] == '-') && ft_isdigit(str[i + 1]))
-		i += 1;
-	while (str[i] != '\0')
+	while (lst)
 	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i += 1;
+		if (!(*f)(lst->content, s))
+			return ((int *)0);
+		lst = lst->next;
 	}
-	return (1);
+	return ((int *)1);
 }
 
-int	is_distinct_tab(int *tab, unsigned int len)
-{
-	int				*test_tab;
-	unsigned int	i;
-	unsigned int	j;
+// int	is_number(const char *str)
+// {
+// 	int		i;
 
-	test_tab = (int *)ft_calloc(sizeof(int), len + 1);
-	if (!test_tab)
-		return (0);
-	i = 0;
-	while (i++ < (len - 1))
-	{
-		j = 0;
-		while (j++ < (i - 1))
-		{
-			if (test_tab[j - 1] == tab[i - 1])
-			{
-				free(test_tab);
-				return (0);
-			}
-		}
-		test_tab[j - 1] = tab[i - 1];
-	}
-	free(test_tab);
-	return (1);
-}
+// 	i = 0;
+// 	if ((str[i] == '-') && ft_isdigit(str[i + 1]))
+// 		i += 1;
+// 	while (str[i] != '\0')
+// 	{
+// 		if (!ft_isdigit(str[i]))
+// 			return (0);
+// 		i += 1;
+// 	}
+// 	return (1);
+// }
+
+// int	is_distinct_tab(int *tab, unsigned int len)
+// {
+// 	int				*test_tab;
+// 	unsigned int	i;
+// 	unsigned int	j;
+
+// 	test_tab = (int *)ft_calloc(sizeof(int), len + 1);
+// 	if (!test_tab)
+// 		return (0);
+// 	i = 0;
+// 	while (i++ < (len - 1))
+// 	{
+// 		j = 0;
+// 		while (j++ < (i - 1))
+// 		{
+// 			if (test_tab[j - 1] == tab[i - 1])
+// 			{
+// 				free(test_tab);
+// 				return (0);
+// 			}
+// 		}
+// 		test_tab[j - 1] = tab[i - 1];
+// 	}
+// 	free(test_tab);
+// 	return (1);
+// }

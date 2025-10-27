@@ -3,15 +3,11 @@
 		"push_swap.h": "c",
 		"libft.h": "c",
 		"unistd.h": "c",
-		"stdlib.h": "c",
-		"stdio.h": "c"
+		"stdlib.h": "c"
 	},
-	"C_Cpp.errorSquiggles": "disabled",
+	"C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
 	"editor.formatOnSave": true,
-	// The number of spaces a tab is equal to.
 	"editor.tabSize": 4,
-	// Insert spaces when pressing Tab.
 	"editor.insertSpaces": true,
-	// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
 	"editor.detectIndentation": true,
 }
