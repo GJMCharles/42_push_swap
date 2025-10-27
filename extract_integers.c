@@ -12,13 +12,16 @@
 
 #include "push_swap.h"
 
-int		is_unique_value(t_pslist *item, char *value)
+// int		is_unique_value(void *item, char *value)
+// {
+// 	if (!item)
+// 		return (0);
+// 	return (((t_pslist *)item)->value != ft_atoi(value));
+// }
+void	is_unique_value(void)
 {
-	if (!item)
-		return (0);
-	return (item->value != ft_atoi(value));
+	//
 }
-
 
 void	find_integer(char *arg, int i, int *em, size_t *s, size_t *e, t_list **l)
 {

@@ -26,15 +26,17 @@ void		error_found(void)
 	exit(EXIT_FAILURE);
 }
 
-int		*lst_is_true(char *s, t_list *lst, int (*f)(void *, char *s))
+int		lst_is_true(const char *s, t_list *lst, void (*f)(void))
 {
-	while (lst)
-	{
-		if (!(*f)(lst->content, s))
-			return ((int *)0);
-		lst = lst->next;
-	}
-	return ((int *)1);
+	(void) s;
+	// while (lst)
+	// {
+	(*f)();
+	// if (!(*f)())
+	// 	return (0);
+	lst = lst->next;
+	// }
+	return (1);
 }
 
 // int	is_number(const char *str)
