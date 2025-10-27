@@ -14,16 +14,20 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+/*
+Do Not Forget to DELETE <stdio.h> before FINAL PUSH
+*/
 # include <stdio.h>
 
 typedef struct s_pslist
 {
-	int				value;
-	unsigned int	pos;
+    int				value;
+    unsigned int	pos;
 }	t_pslist;
 
-void	error_found(void);
-t_list	*extract_integers(int argc, char **argv);
+void			error_found(void);
+t_list			*extract_integers(int argc, char **argv);
+long long int	ft_atonb(const char *str);
 
 // int		lst_is_true(const char *s, t_list *lst, void (*f)(void));
 // int				is_number(const char *str);

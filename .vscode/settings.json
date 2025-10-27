@@ -3,7 +3,14 @@
 		"push_swap.h": "c",
 		"libft.h": "c",
 		"unistd.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"bit": "c",
+		"concepts": "c",
+		"cstdio": "c",
+		"type_traits": "c",
+		"initializer_list": "c",
+		"new": "c",
+		"typeinfo": "c"
 	},
 	"C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
 	"editor.formatOnSave": true,

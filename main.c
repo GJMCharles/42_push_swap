@@ -12,34 +12,23 @@
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	print_content(t_pslist *content)
 {
-	// unsigned int	len;
-	// int				*tab;
-	t_list			*a_list;
-	if (argc < 2)
-		error_found();
-	a_list = extract_integers(argc, argv);
-	if (!a_list)
-		error_found();
-	// printf("SIZE: %u\n", size);
-	// tab = get_integer_tab(argc, argv, &len);
-	// printf("1\n");
-	// if (!tab)
-	// 	error_found();
-	// printf("2\n");
-	// if (!is_distinct_tab(tab, len))
-	// {
-	// 	free(tab);
-	// 	error_found();
-	// }
-	// printf("3\n");
-	// if (!push_swap(tab, len))
-	// {
-	// 	free(tab);
-	// 	error_found();
-	// }
-	// printf("4\n");
-	// free(tab);
-	return (EXIT_SUCCESS);
+    printf("POS: [%u] VALUE: [%i]\n", content->pos, content->value);
+}
+
+int main(int argc, char *argv[])
+{
+    t_list *a_list;
+    t_list *b_list;
+
+    (void) b_list;
+    if (argc < 2)
+        error_found();
+    a_list = extract_integers(argc, argv);
+    if (!a_list)
+        error_found();
+    ft_lstiter(a_list, (void *)print_content);
+    ft_lstclear(&a_list, free);
+    return (EXIT_SUCCESS);
 }
