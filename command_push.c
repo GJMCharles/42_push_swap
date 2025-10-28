@@ -14,12 +14,12 @@
 
 void	pa(t_list **list_a, t_list **list_b)
 {
-    action_push(&(*list_b), &(*list_a));
-    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	action_push(&(*list_b), &(*list_a));
+	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }
 
 void	pb(t_list **list_a, t_list **list_b)
 {
-    action_push(&(*list_a), &(*list_b));
-    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	action_push(&(*list_a), &(*list_b));
+	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }

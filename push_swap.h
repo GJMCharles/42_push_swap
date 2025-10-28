@@ -14,9 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-/*
-Do Not Forget to DELETE <stdio.h> before FINAL PUSH
-*/
+# include "limits.h"
 # include <stdio.h>
 
 typedef struct s_pslist
@@ -48,6 +46,6 @@ void			action_swap(t_list **list);
 void			action_push(t_list **list_src, t_list **list_dest);
 void			action_rotate(t_list **list);
 void			action_reverse_rotate(t_list **list);
-void			action_mirror(t_list **list_a, t_list **list_b, void (*f)(t_list **));
+void			action_mirror(t_list **a, t_list **b, void (*f)(t_list **));
 
 #endif // PUSH_SWAP_H

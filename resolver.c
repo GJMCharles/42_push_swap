@@ -37,13 +37,13 @@ void	reset_position(t_list **list)
 	}
 }
 
-void	command(void (*f)(t_list **, t_list **), t_list **list_a, t_list **list_b)
+void	command(void (*f)(t_list **, t_list **), t_list **a, t_list **b)
 {
-	(*f)(&(*list_a), &(*list_b));
-	if (*list_a)
-		reset_position(&(*list_a));
-	if (*list_b)
-		reset_position(&(*list_b));
+	(*f)(&(*a), &(*b));
+	if (*a)
+		reset_position(&(*a));
+	if (*b)
+		reset_position(&(*b));
 }
 
 void	resolver(t_list **a, t_list **b)

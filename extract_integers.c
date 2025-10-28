@@ -12,11 +12,21 @@
 
 #include "push_swap.h"
 
-int can_append_list(const char *str, t_list **list)
+int	can_append_list(const char *str, t_list **list)
 {
+	int			value;
+	t_list		*tmp;
 	t_list		*list_item;
 
-	list_item = create_list_item(ft_atonb(str));
+	value = ft_atonb(str);
+	tmp = *list;
+	while (tmp)
+	{
+		if (((t_pslist *)tmp->content)->value == value)
+			return (0);
+		tmp = tmp->next;
+	}
+	list_item = create_list_item(value);
 	if (!list_item)
 		return (0);
 	((t_pslist *) list_item->content)->pos = (unsigned int) ft_lstsize(*list);
@@ -24,15 +34,15 @@ int can_append_list(const char *str, t_list **list)
 	return (1);
 }
 
-int is_valid_integer(const char *data)
+int	is_valid_integer(const char *data)
 {
 	long long int	nb;
 
 	nb = ft_atonb(data);
-	return ((nb >= -2147483648) && (nb <= 2147483647));
+	return ((nb >= INT_MIN) && (nb <= INT_MAX));
 }
 
-void find_integer(char *arg, int i, int *t, size_t *s, size_t *e, t_list **l)
+void	find_integer(char *arg, int i, int *t, size_t *s, size_t *e, t_list **l)
 {
 	char	*data;
 
@@ -58,29 +68,37 @@ void find_integer(char *arg, int i, int *t, size_t *s, size_t *e, t_list **l)
 		return (*t = -1, ft_lstclear(&(*l), free));
 }
 
-t_list *extract_integers(int argc, char **argv)
+void	*test_argv(int index, t_list *list, char **argv, int *test)
 {
-	int		i;
-	t_list	*list;
 	int		j;
-	int		test;
 	size_t	start;
 	size_t	end;
 
+	j = 0;
+	start = 0;
+	end = 0;
+	while (argv[index][j++] != '\0')
+	{
+		find_integer(argv[index], (j - 1), &test, &start, &end, &list);
+		if (*test == -1)
+			break;
+	}
+}
+
+t_list	*extract_integers(int argc, char **argv)
+{
+	int		i;
+	t_list	*list;
+	int		test;
+
 	i = 0;
+	test = 0;
 	list = (t_list *)((void *)0);
 	while (++i < argc)
 	{
-		j = 0;
-		test = 0;
-		start = 0;
-		end = 0;
-		while (argv[i][j++] != '\0')
-		{
-			find_integer(argv[i], (j - 1), &test, &start, &end, &list);
-			if (test == -1)
-				return ((t_list *)((void *)0));
-		}
+		test_argv(i, list, argv, &test);
+		if (test == -1)
+			return ((t_list *)((void *)0));
 	}
 	return (list);
 }

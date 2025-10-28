@@ -14,20 +14,20 @@
 
 void	rra(t_list **list_a, t_list **list_b)
 {
-    (void) *list_b;
-    action_reverse_rotate(&(*list_a));
-    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	(void) *list_b;
+	action_reverse_rotate(&(*list_a));
+	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }
 
 void	rrb(t_list **list_a, t_list **list_b)
 {
-    (void) *list_a;
-    action_reverse_rotate(&(*list_b));
-    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	(void) *list_a;
+	action_reverse_rotate(&(*list_b));
+	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }
 
 void	rrr(t_list **list_a, t_list **list_b)
 {
-    action_mirror(&(*list_a), &(*list_b), action_reverse_rotate);
-    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	action_mirror(&(*list_a), &(*list_b), action_reverse_rotate);
+	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }

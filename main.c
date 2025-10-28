@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-    t_list *a_list;
-    t_list *b_list;
+	t_list	*a_list;
+	t_list	*b_list;
 
-    (void) b_list;
-    if (argc < 2)
-        error_found();
-    a_list = extract_integers(argc, argv);
-    if (!a_list)
-        error_found();
-    b_list = (t_list *)((void *)0);
-    resolver(&a_list, &b_list);
-    ft_lstclear(&a_list, free);
-    if (b_list)
-        ft_lstclear(&b_list, free);
-    return (EXIT_SUCCESS);
+	(void) b_list;
+	if (argc < 2)
+		error_found();
+	a_list = extract_integers(argc, argv);
+	if (!a_list)
+		error_found();
+	b_list = (t_list *)((void *)0);
+	resolver(&a_list, &b_list);
+	ft_lstclear(&a_list, free);
+	if (b_list)
+		ft_lstclear(&b_list, free);
+	return (EXIT_SUCCESS);
 }
