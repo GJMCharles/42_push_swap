@@ -26,8 +26,6 @@ void	resolver(t_list **a, t_list **b)
 {
     (void) *b;
     ft_lstiter(*a, (void *) print_content);
-    command(ra, &(*a), &(*b));
-    ft_lstiter(*a, (void *) print_content);
-    command(rra, &(*a), &(*b));
+    command(sa, &(*a), &(*b));
     ft_lstiter(*a, (void *) print_content);
 }

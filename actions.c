@@ -15,7 +15,16 @@
 
 void	action_swap(t_list **list)
 {
-	(void) *list;
+	t_list	*old_item;
+	t_list	*new_item;
+
+	if (!(*list) || !(*list)->next)
+		return ;
+	old_item = (*list)->next;
+	new_item = create_list_item(((t_pslist *)old_item->content)->value);
+	(*list)->next = old_item->next;
+	ft_lstdelone(old_item, free);
+	ft_lstadd_front(&(*list), new_item);
 }
 
 void	action_push(t_list **list_src, t_list **list_dest)
@@ -31,7 +40,7 @@ void	action_rotate(t_list **list)
 
 	if (!(*list) || !(*list)->next)
 		return ;
-	new_item = create_list_item((((t_pslist *)(*list)->content)->value));
+	new_item = create_list_item(((t_pslist *)(*list)->content)->value);
 	if (!new_item)
 		return ;
 	list_item = (*list)->next;
@@ -49,7 +58,7 @@ void	action_reverse_rotate(t_list **list)
 	if (!(*list) || !(*list)->next)
 		return ;
 	last_item = ft_lstlast(*list);
-	new_item = create_list_item((((t_pslist *)(last_item)->content)->value));
+	new_item = create_list_item(((t_pslist *)(last_item)->content)->value);
 	if (!new_item)
 		return ;
 	list_item = *list;
