@@ -55,8 +55,8 @@ void	resolver(t_list **a, t_list **b)
 	ft_lstiter(*b, (void *) print_content);
 	command(pb, &(*a), &(*b));
 	command(pb, &(*a), &(*b));
+	command(pb, &(*a), &(*b));
 	command(ss, &(*a), &(*b));
-	command(pa, &(*a), &(*b));
 	printf("---------\nAFTRER: [A]\n");
 	ft_lstiter(*a, (void *) print_content);
 	printf("\nAFTER: [B]\n");
