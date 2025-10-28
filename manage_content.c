@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   manage_content.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 12:01:15 by grcharle          #+#    #+#             */
-/*   Updated: 2025/08/26 14:30:44 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 11:26:44 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 11:26:54 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_pslist	*create_content(int value)
 {
-	t_list	*new_node;
+	t_pslist	*content;
 
-	new_node = (t_list *) malloc(sizeof(t_list));
-	if (!new_node)
-		return ((t_list *)(void *)0);
-	new_node->content = content;
-	new_node->next = (t_list *)(void *)0;
-	return (new_node);
+	content = (t_pslist *) ft_calloc(1, sizeof(t_pslist));
+	if (!content)
+		return ((t_pslist *)(void *)0);
+	content->value = value;
+	content->pos = 0;
+	return (content);
 }

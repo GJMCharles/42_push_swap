@@ -32,7 +32,8 @@ SOURCES := \
 	command_push.c \
 	command_rotate.c \
 	command_reverse_rotate.c \
-	command_swap.c
+	command_swap.c \
+	manage_content.c
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 

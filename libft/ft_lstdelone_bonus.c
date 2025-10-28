@@ -14,17 +14,10 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    // t_list	*tmp;
-
-    if (!lst)
-        return ;
-    // tmp = (t_list *)((void *)0);
-    // if (lst->next)
-    // 	tmp = lst->next;
-    if (del)
-        (*del)(lst->content);
-    free(lst);
-    lst = (t_list *)((void *)0);
-    // if (tmp != (t_list *)((void *)0))
-    // 	lst = tmp;
+	if (!lst)
+		return ;
+	if (del)
+		(*del)(lst->content);
+	free(lst);
+	lst = (t_list *)((void *)0);
 }

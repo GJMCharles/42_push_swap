@@ -21,14 +21,17 @@ Do Not Forget to DELETE <stdio.h> before FINAL PUSH
 
 typedef struct s_pslist
 {
-    int				value;
-    unsigned int	pos;
+	int				value;
+	unsigned int	pos;
 }	t_pslist;
 
 void			error_found(void);
 t_list			*extract_integers(int argc, char **argv);
 long long int	ft_atonb(const char *str);
 void			resolver(t_list **list_a, t_list **list_b);
+
+t_pslist        *create_content(int value);
+
 void			pa(t_list **list_a, t_list **list_b);
 void			pb(t_list **list_a, t_list **list_b);
 void			ra(t_list **list_a, t_list **list_b);
@@ -40,6 +43,7 @@ void			ss(t_list **list_a, t_list **list_b);
 void			rra(t_list **list_a, t_list **list_b);
 void			rrb(t_list **list_a, t_list **list_b);
 void			rrr(t_list **list_a, t_list **list_b);
+
 void			action_swap(t_list **list);
 void			action_push(t_list **list_src, t_list **list_dest);
 void			action_rotate(t_list **list);

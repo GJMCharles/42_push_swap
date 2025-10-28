@@ -24,12 +24,7 @@ void	command(void (*f)(t_list **, t_list **), t_list **list_a, t_list **list_b)
 
 void	resolver(t_list **a, t_list **b)
 {
-    // int		min_max;
-    // min_max = 0;
     (void) *b;
-    /**
-     * SOLVER
-     */
     ft_lstiter(*a, (void *) print_content);
     command(ra, &(*a), &(*b));
     ft_lstiter(*a, (void *) print_content);
