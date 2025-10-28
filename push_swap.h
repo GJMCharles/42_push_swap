@@ -30,7 +30,7 @@ t_list			*extract_integers(int argc, char **argv);
 long long int	ft_atonb(const char *str);
 void			resolver(t_list **list_a, t_list **list_b);
 
-t_pslist        *create_content(int value);
+t_list			*create_list_item(int value);
 
 void			pa(t_list **list_a, t_list **list_b);
 void			pb(t_list **list_a, t_list **list_b);

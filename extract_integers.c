@@ -14,17 +14,13 @@
 
 int can_append_list(const char *str, t_list **list)
 {
-	t_pslist	*content;
-	t_list		*tmp_list;
+	t_list		*list_item;
 
-	content = create_content(ft_atonb(str));
-	if (!content)
+	list_item = create_list_item(ft_atonb(str));
+	if (!list_item)
 		return (0);
-	content->pos = (unsigned int) ft_lstsize(*list);
-	tmp_list = ft_lstnew(content);
-	if (!tmp_list)
-		return (free(content), 0);
-	ft_lstadd_back(&(*list), tmp_list);
+	((t_pslist *) list_item->content)->pos = (unsigned int) ft_lstsize(*list);
+	ft_lstadd_back(&(*list), list_item);
 	return (1);
 }
 

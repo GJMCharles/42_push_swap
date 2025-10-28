@@ -26,39 +26,38 @@ void	action_push(t_list **list_src, t_list **list_dest)
 
 void	action_rotate(t_list **list)
 {
-	t_pslist	*first;
-	t_pslist	*last;
-	t_pslist	**tmp;
+	t_list	*list_item;
+	t_list	*new_item;
 
-	first = (t_pslist *) (*list)->content;
-	last = (t_pslist *) ft_lstlast(*list)->content;
-
-	tmp = &first;
-	// first = &last;
-	// last = tmp;
+	if (!(*list) || !(*list)->next)
+		return ;
+	new_item = create_list_item((((t_pslist *)(*list)->content)->value));
+	if (!new_item)
+		return ;
+	list_item = (*list)->next;
+	ft_lstdelone(*list, free);
+	*list = list_item;
+	ft_lstadd_back(&(*list), new_item);
 }
 
 void	action_reverse_rotate(t_list **list)
 {
-	t_list		*tmp_list;
-	t_list		*saved_list_item;
-	t_pslist	*duplicate_content;
+	t_list	*last_item;
+	t_list	*list_item;
+	t_list	*new_item;
 
 	if (!(*list) || !(*list)->next)
 		return ;
-	tmp_list = ft_lstlast(*list);
-	duplicate_content = create_content(((t_pslist *)(tmp_list)->content)->value);
-	if (!duplicate_content)
+	last_item = ft_lstlast(*list);
+	new_item = create_list_item((((t_pslist *)(last_item)->content)->value));
+	if (!new_item)
 		return ;
-	saved_list_item = ft_lstnew(duplicate_content);
-	if (!saved_list_item)
-	{
-		free(duplicate_content);
-		return ;
-	}
-	ft_lstdelone(*list, free);
-	*list = tmp_list;
-	ft_lstadd_back(&(*list), saved_list_item);
+	list_item = *list;
+	while (list_item->next != last_item)
+		list_item = list_item->next;
+	list_item->next = (t_list *)((void *)0);
+	ft_lstdelone(last_item, free);
+	ft_lstadd_front(&(*list), new_item);
 }
 
 void	action_mirror(t_list **list_a, t_list **list_b, void (*f)(t_list **))

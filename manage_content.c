@@ -12,14 +12,21 @@
 
 #include "push_swap.h"
 
-t_pslist	*create_content(int value)
+t_list	*create_list_item(int value)
 {
 	t_pslist	*content;
+	t_list		*item;
 
 	content = (t_pslist *) ft_calloc(1, sizeof(t_pslist));
 	if (!content)
-		return ((t_pslist *)(void *)0);
+		return ((t_list *)(void *)0);
 	content->value = value;
 	content->pos = 0;
-	return (content);
+	item = ft_lstnew(content);
+	if (!item)
+	{
+		free(content);
+		return ((t_list *)(void *)0);
+	}
+	return (item);
 }
