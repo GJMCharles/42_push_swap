@@ -27,8 +27,12 @@ SOURCES := \
 	main.c \
 	utils.c \
 	extract_integers.c \
-	push_swap.c \
-	actions.c
+	resolver.c \
+	actions.c \
+	command_push.c \
+	command_rotate.c \
+	command_reverse_rotate.c \
+	command_swap.c
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 

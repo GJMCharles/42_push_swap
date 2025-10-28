@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
+# include "libft/libft.h"
 /*
 Do Not Forget to DELETE <stdio.h> before FINAL PUSH
 */
@@ -28,7 +28,18 @@ typedef struct s_pslist
 void			error_found(void);
 t_list			*extract_integers(int argc, char **argv);
 long long int	ft_atonb(const char *str);
-void			push_swap(t_list **a, t_list **b);
+void			resolver(t_list **list_a, t_list **list_b);
+void			pa(t_list **list_a, t_list **list_b);
+void			pb(t_list **list_a, t_list **list_b);
+void			ra(t_list **list_a, t_list **list_b);
+void			rb(t_list **list_a, t_list **list_b);
+void			rr(t_list **list_a, t_list **list_b);
+void			sa(t_list **list_a, t_list **list_b);
+void			sb(t_list **list_a, t_list **list_b);
+void			ss(t_list **list_a, t_list **list_b);
+void			rra(t_list **list_a, t_list **list_b);
+void			rrb(t_list **list_a, t_list **list_b);
+void			rrr(t_list **list_a, t_list **list_b);
 void			action_swap(t_list **list);
 void			action_push(t_list **list_src, t_list **list_dest);
 void			action_rotate(t_list **list);

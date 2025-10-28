@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   command_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 00:50:12 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/28 00:50:14 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 08:04:21 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 08:04:22 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	action_swap(t_list **list)
+void	sa(t_list **list_a, t_list **list_b)
 {
-    (void) *list;
+    (void) *list_b;
+    action_swap(&(*list_a));
+    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }
 
-void	action_push(t_list **list_src, t_list **list_dest)
+void	sb(t_list **list_a, t_list **list_b)
 {
-    (void) *list_src;
-    (void) *list_dest;
+    (void) *list_a;
+    action_swap(&(*list_b));
+    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }
 
-void	action_rotate(t_list **list)
+void	ss(t_list **list_a, t_list **list_b)
 {
-    (void) *list;
-}
-
-void	action_reverse_rotate(t_list **list)
-{
-    (void) *list;
-}
-
-void	action_mirror(t_list **list_a, t_list **list_b, void (*f)(t_list **))
-{
-    (*f)(&(*list_a));
-    (*f)(&(*list_b));
+    action_mirror(&(*list_a), &(*list_b), action_swap);
+    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }

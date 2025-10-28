@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 00:50:12 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/28 00:50:14 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 00:37:02 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 00:37:03 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	action_swap(t_list **list)
+void	print_content(t_pslist *content)
 {
-    (void) *list;
+    printf("POS: [%u] VALUE: [%i]\n", content->pos, content->value);
 }
 
-void	action_push(t_list **list_src, t_list **list_dest)
+void	command(void (*f)(t_list **, t_list **), t_list **list_a, t_list **list_b)
 {
-    (void) *list_src;
-    (void) *list_dest;
+    (*f)(&(*list_a), &(*list_b));
 }
 
-void	action_rotate(t_list **list)
+void	resolver(t_list **a, t_list **b)
 {
-    (void) *list;
-}
-
-void	action_reverse_rotate(t_list **list)
-{
-    (void) *list;
-}
-
-void	action_mirror(t_list **list_a, t_list **list_b, void (*f)(t_list **))
-{
-    (*f)(&(*list_a));
-    (*f)(&(*list_b));
+    // int		min_max;
+    // min_max = 0;
+    (void) *b;
+    /**
+     * SOLVER
+     */
+    command(pa, &(*a), &(*b));
+    ft_lstiter(*a, (void *) print_content);
 }

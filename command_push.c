@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   command_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 00:37:02 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/28 00:37:03 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 08:04:15 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 08:04:17 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	print_content(t_pslist *content)
-// {
-// 	printf("POS: [%u] VALUE: [%i]\n", content->pos, content->value);
-// }
-
-void	push_swap(t_list **a, t_list **b)
+void	pa(t_list **list_a, t_list **list_b)
 {
-    (void) *a;
-    (void) *b;
-    /**
-     * SOLVER
-     */
-    // ft_lstiter(*a, (void *)print_content);
+    action_push(&(*list_b), &(*list_a));
+    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+}
+
+void	pb(t_list **list_a, t_list **list_b)
+{
+    action_push(&(*list_a), &(*list_b));
+    ft_putendl_fd((char *) __func__, STDOUT_FILENO);
 }
