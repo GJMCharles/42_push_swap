@@ -51,28 +51,32 @@ long long int	ft_atonb(const char *str)
 	return (nb * neg);
 }
 
-// int	is_distinct_tab(int *tab, unsigned int len)
-// {
-// 	int				*test_tab;
-// 	unsigned int	i;
-// 	unsigned int	j;
-// 	test_tab = (int *)ft_calloc(sizeof(int), len + 1);
-// 	if (!test_tab)
-// 		return (0);
-// 	i = 0;
-// 	while (i++ < (len - 1))
-// 	{
-// 		j = 0;
-// 		while (j++ < (i - 1))
-// 		{
-// 			if (test_tab[j - 1] == tab[i - 1])
-// 			{
-// 				free(test_tab);
-// 				return (0);
-// 			}
-// 		}
-// 		test_tab[j - 1] = tab[i - 1];
-// 	}
-// 	free(test_tab);
-// 	return (1);
-// }
+int	can_append_list(const char *str, t_list **list)
+{
+	int			value;
+	t_list		*tmp;
+	t_list		*list_item;
+
+	value = ft_atonb(str);
+	tmp = *list;
+	while (tmp)
+	{
+		if (((t_pslist *)tmp->content)->value == value)
+			return (0);
+		tmp = tmp->next;
+	}
+	list_item = create_list_item(value);
+	if (!list_item)
+		return (0);
+	((t_pslist *) list_item->content)->pos = (unsigned int) ft_lstsize(*list);
+	ft_lstadd_back(&(*list), list_item);
+	return (1);
+}
+
+int	is_valid_integer(const char *data)
+{
+	long long int	nb;
+
+	nb = ft_atonb(data);
+	return ((nb >= INT_MIN) && (nb <= INT_MAX));
+}

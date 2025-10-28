@@ -42,6 +42,9 @@ void			rra(t_list **list_a, t_list **list_b);
 void			rrb(t_list **list_a, t_list **list_b);
 void			rrr(t_list **list_a, t_list **list_b);
 
+int				can_append_list(const char *str, t_list **list);
+int				is_valid_integer(const char *data);
+
 void			action_swap(t_list **list);
 void			action_push(t_list **list_src, t_list **list_dest);
 void			action_rotate(t_list **list);

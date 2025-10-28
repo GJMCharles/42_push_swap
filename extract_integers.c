@@ -12,92 +12,63 @@
 
 #include "push_swap.h"
 
-int	can_append_list(const char *str, t_list **list)
+void	parse_argv1(int *j, int *test, size_t *start)
 {
-	int			value;
-	t_list		*tmp;
-	t_list		*list_item;
-
-	value = ft_atonb(str);
-	tmp = *list;
-	while (tmp)
+	if (*test == 0)
 	{
-		if (((t_pslist *)tmp->content)->value == value)
-			return (0);
-		tmp = tmp->next;
+		*start = (*j - 1);
+		*test = 1;
 	}
-	list_item = create_list_item(value);
-	if (!list_item)
-		return (0);
-	((t_pslist *) list_item->content)->pos = (unsigned int) ft_lstsize(*list);
-	ft_lstadd_back(&(*list), list_item);
-	return (1);
 }
 
-int	is_valid_integer(const char *data)
-{
-	long long int	nb;
-
-	nb = ft_atonb(data);
-	return ((nb >= INT_MIN) && (nb <= INT_MAX));
-}
-
-void	find_integer(char *arg, int i, int *t, size_t *s, size_t *e, t_list **l)
+void	parse_argv2(size_t end, size_t *start, const char *arg, t_list **list)
 {
 	char	*data;
 
-	if (ft_isdigit(arg[i]) || ((arg[i] == '-') && ft_isdigit(arg[i + 1])))
-	{
-		if (*t == 0)
-		{
-			*s = i;
-			*t = 1;
-		}
-		if (*t == 1 && (arg[i + 1] == ' ' || arg[i + 1] == '\0'))
-		{
-			*e = i;
-			data = ft_substr(arg, *s, (*e - *s) + 1);
-			if (!is_valid_integer(data) || !can_append_list(data, &(*l)))
-				return (*t = -1, free(data), ft_lstclear(&(*l), free));
-			free(data);
-		}
-	}
-	else if (arg[i] == ' ')
-		*t = 0;
-	else
-		return (*t = -1, ft_lstclear(&(*l), free));
+	data = ft_substr(arg, *start, (end - *start) + 1);
+	if (!is_valid_integer(data) || !can_append_list(data, &(*list)))
+		return (free(data), ft_lstclear(&(*list), free));
+	free(data);
 }
 
-void	*test_argv(int index, t_list *list, char **argv, int *test)
+int	test_argv(const char *arg, t_list **list)
 {
 	int		j;
 	size_t	start;
 	size_t	end;
+	int		test;
 
 	j = 0;
 	start = 0;
 	end = 0;
-	while (argv[index][j++] != '\0')
+	test = 0;
+	while (arg[j++] != '\0')
 	{
-		find_integer(argv[index], (j - 1), &test, &start, &end, &list);
-		if (*test == -1)
-			break;
+		if (ft_isdigit(arg[j - 1]) || \
+			((arg[j - 1] == '-') && ft_isdigit(arg[j])))
+		{
+			parse_argv1(&j, &test, &start);
+			if (test == 1 && (arg[j] == ' ' || arg[j] == '\0'))
+				parse_argv2(end = (j - 1), &start, arg, &(*list));
+		}
+		else if (arg[j - 1] == ' ')
+			test = 0;
+		else
+			return (ft_lstclear(&(*list), free), 0);
 	}
+	return (1);
 }
 
 t_list	*extract_integers(int argc, char **argv)
 {
 	int		i;
 	t_list	*list;
-	int		test;
 
 	i = 0;
-	test = 0;
 	list = (t_list *)((void *)0);
 	while (++i < argc)
 	{
-		test_argv(i, list, argv, &test);
-		if (test == -1)
+		if (!test_argv(argv[i], &list))
 			return ((t_list *)((void *)0));
 	}
 	return (list);
