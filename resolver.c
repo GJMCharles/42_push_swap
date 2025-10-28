@@ -46,19 +46,54 @@ void	command(void (*f)(t_list **, t_list **), t_list **a, t_list **b)
 		reset_position(&(*b));
 }
 
+t_pslist	*seek_minimum_value(t_list	*list)
+{
+	int			min;
+	t_pslist	*tmp;
+
+	min = INT_MAX;
+	while (list)
+	{
+		if (min > ((t_pslist *) list->content)->value)
+		{
+			min = ((t_pslist *) list->content)->value;
+			tmp = (t_pslist *) list->content;
+		}
+		list = list->next;
+	}
+	return (tmp);
+}
+
+int	is_sorted_list(t_list *a, t_list *b)
+{
+	t_list	*tmp;
+
+	if (ft_lstsize(b) || !ft_lstsize(a))
+		return (0);
+	tmp = a;
+	while (tmp)
+	{
+		if (((t_pslist *)tmp->content)->value > ((t_pslist *)tmp->next->content)->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 void	resolver(t_list **a, t_list **b)
 {
-	(void) *b;
-	printf("BEFORE: [A]\n");
-	ft_lstiter(*a, (void *) print_content);
-	printf("\nBEFORE: [B]\n---------\n");
-	ft_lstiter(*b, (void *) print_content);
-	command(pb, &(*a), &(*b));
-	command(pb, &(*a), &(*b));
-	command(pb, &(*a), &(*b));
-	command(ss, &(*a), &(*b));
-	printf("---------\nAFTRER: [A]\n");
-	ft_lstiter(*a, (void *) print_content);
-	printf("\nAFTER: [B]\n");
-	ft_lstiter(*b, (void *) print_content);
+	int			total;
+	t_pslist	*item_min;
+
+	while (ft_lstsize(*a))
+	{
+		total = ft_lstsize(*a);
+		item_min = seek_minimum_value(*a);
+		if (item_min->pos == 0)
+			command(pb, &(*a), &(*b));
+		else if ((total / 2) + 1 <= (int)item_min->pos)
+			command(rra, &(*a), &(*b));
+		else
+			command(ra, &(*a), &(*b));
+	}
 }

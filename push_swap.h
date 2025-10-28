@@ -23,6 +23,21 @@ typedef struct s_pslist
 	unsigned int	pos;
 }	t_pslist;
 
+typedef enum
+{
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	SA,
+	SB,
+	SS,
+	RRA,
+	RRB,
+	RRR
+}	e_action;
+
 void			error_found(void);
 t_list			*extract_integers(int argc, char **argv);
 long long int	ft_atonb(const char *str);
