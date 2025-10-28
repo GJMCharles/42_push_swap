@@ -21,9 +21,9 @@ int main(int argc, char *argv[])
     if (argc < 2)
         error_found();
     a_list = extract_integers(argc, argv);
-    b_list = (t_list *)((void *)0);
     if (!a_list)
         error_found();
+    b_list = (t_list *)((void *)0);
     push_swap(&a_list, &b_list);
     ft_lstclear(&a_list, free);
     if (b_list)
