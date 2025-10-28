@@ -10,11 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "push_swap.h"
 
 void	action_swap(t_list **list)
 {
-    (void) *list;
+    if (!*list || !(*list)->next)
+        return ;
+    t_list *tmp;
+
+    tmp = (*list)->next;
+    (*list)->next = *list;
+    *list = tmp;
+
 }
 
 void	action_push(t_list **list_src, t_list **list_dest)
