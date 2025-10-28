@@ -26,11 +26,9 @@ LDLIBS := -L$(LIBFT_SRC) -lft
 SOURCES := \
 	main.c \
 	utils.c \
-	extract_integers.c
-# 	push_swap.c \
-# 	list_builder.c \
-# 	args_validator.c \
-
+	extract_integers.c \
+	push_swap.c \
+	actions.c
 
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 

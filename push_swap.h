@@ -28,16 +28,11 @@ typedef struct s_pslist
 void			error_found(void);
 t_list			*extract_integers(int argc, char **argv);
 long long int	ft_atonb(const char *str);
-
-// int		lst_is_true(const char *s, t_list *lst, void (*f)(void));
-// int				is_number(const char *str);
-// int				*get_integer_tab(int argc, char **argv, unsigned int *len);
-// int				is_distinct_tab(int *tab, unsigned int len);
-// t_list			*build_list(int *tab, unsigned int size);
-// t_list			*delete_list(t_list *list);
-// t_pslist		*create_item(unsigned int pos, int value);
-// int				push_swap(int *tab, unsigned int size);
-// long long int	ft_atonb(const char *nptr);
-// void			swap_solver(t_list **a, t_list **b);
+void			push_swap(t_list **a, t_list **b);
+void			action_swap(t_list **list);
+void			action_push(t_list **list_src, t_list **list_dest);
+void			action_rotate(t_list **list);
+void			action_reverse_rotate(t_list **list);
+void			action_mirror(t_list **list_a, t_list **list_b, void (*f)(t_list **));
 
 #endif // PUSH_SWAP_H
