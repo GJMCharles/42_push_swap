@@ -15,14 +15,7 @@
 
 void	action_swap(t_list **list)
 {
-    if (!*list || !(*list)->next)
-        return ;
-    t_list *tmp;
-
-    tmp = (*list)->next;
-    (*list)->next = *list;
-    *list = tmp;
-
+    (void) *list;
 }
 
 void	action_push(t_list **list_src, t_list **list_dest)
@@ -33,7 +26,12 @@ void	action_push(t_list **list_src, t_list **list_dest)
 
 void	action_rotate(t_list **list)
 {
-    (void) *list;
+    // t_list	*tmp;
+
+    if (!(*list) || !(*list)->next)
+        return ;
+    // tmp = (*list)->next;
+    ft_lstdelone(*list, free);
 }
 
 void	action_reverse_rotate(t_list **list)

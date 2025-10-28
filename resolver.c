@@ -31,6 +31,6 @@ void	resolver(t_list **a, t_list **b)
      * SOLVER
      */
     ft_lstiter(*a, (void *) print_content);
-    command(sa, &(*a), &(*b));
+    command(ra, &(*a), &(*b));
     ft_lstiter(*a, (void *) print_content);
 }
