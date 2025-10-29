@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_push.c                                     :+:      :+:    :+:   */
+/*   ops_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 08:04:15 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/28 08:04:17 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 22:51:09 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 22:51:11 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **list_a, t_list **list_b)
+static void	rotate_up(t_stack *s)
 {
-	action_push(&(*list_b), &(*list_a));
-	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	t_node	*n;
+
+	if (s->size < 2)
+		return ;
+	n = pop_top(s);
+	stack_push_bottom(s, n);
 }
 
-void	pb(t_list **list_a, t_list **list_b)
+void	ra(t_stack *a)
 {
-	action_push(&(*list_a), &(*list_b));
-	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	rotate_up(a);
+	ft_putendl_fd((char *) __func__, 1);
+}
+
+void	rb(t_stack *b)
+{
+	rotate_up(b);
+	ft_putendl_fd((char *) __func__, 1);
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	rotate_up(a);
+	rotate_up(b);
+	ft_putendl_fd((char *) __func__, 1);
 }

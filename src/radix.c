@@ -1,33 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_rotate.c                                   :+:      :+:    :+:   */
+/*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 08:04:27 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/28 08:04:28 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 22:51:31 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 22:51:33 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list **list_a, t_list **list_b)
+static void	round_pass(t_stack *a, t_stack *b, int bit)
 {
-	(void) *list_b;
-	action_rotate(&(*list_a));
-	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	int			n;
+	int			i;
+	int			idx;
+	t_node		*top;
+
+	n = a->size;
+	i = 0;
+	while (i < n)
+	{
+		top = a->top;
+		idx = top->index;
+		if (((idx >> bit) & 1) == 0)
+			pb(a, b);
+		else
+			ra(a);
+		i++;
+	}
+	while (b->size)
+		pa(a, b);
 }
 
-void	rb(t_list **list_a, t_list **list_b)
+void	radix_sort(t_stack *a, t_stack *b)
 {
-	(void) *list_a;
-	action_rotate(&(*list_b));
-	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
-}
+	int			bits;
+	int			k;
 
-void	rr(t_list **list_a, t_list **list_b)
-{
-	action_mirror(&(*list_a), &(*list_b), action_rotate);
-	ft_putendl_fd((char *) __func__, STDOUT_FILENO);
+	bits = max_bits_needed(a);
+	k = 0;
+	while (k < bits)
+	{
+		round_pass(a, b, k);
+		k++;
+	}
 }

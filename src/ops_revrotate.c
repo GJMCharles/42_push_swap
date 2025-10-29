@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_content.c                                   :+:      :+:    :+:   */
+/*   ops_revrotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 11:26:44 by grcharle          #+#    #+#             */
-/*   Updated: 2025/10/28 11:26:54 by grcharle         ###   ########.fr       */
+/*   Created: 2025/10/28 22:51:01 by grcharle          #+#    #+#             */
+/*   Updated: 2025/10/28 22:51:04 by grcharle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_list_item(int value)
+static void	rotate_down(t_stack *s)
 {
-	t_pslist	*content;
-	t_list		*item;
+	t_node		*n;
 
-	content = (t_pslist *) ft_calloc(1, sizeof(t_pslist));
-	if (!content)
-		return ((t_list *)(void *)0);
-	content->value = value;
-	content->pos = 0;
-	item = ft_lstnew(content);
-	if (!item)
-	{
-		free(content);
-		return ((t_list *)(void *)0);
-	}
-	return (item);
+	if (s->size < 2)
+		return ;
+	n = pop_bottom(s);
+	stack_push_top(s, n);
+}
+
+void	rra(t_stack *a)
+{
+	rotate_down(a);
+	ft_putendl_fd((char *) __func__, 1);
+}
+
+void	rrb(t_stack *b)
+{
+	rotate_down(b);
+	ft_putendl_fd((char *) __func__, 1);
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rotate_down(a);
+	rotate_down(b);
+	ft_putendl_fd((char *) __func__, 1);
 }

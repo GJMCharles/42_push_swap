@@ -1,9 +1,0 @@
-{
-	"recommendations": [
-		"dokca.42-ft-count-line",
-		"llvm-vs-code-extensions.vscode-clangd",
-		"xaver.clang-format",
-		"ms-vscode.cpptools",
-		"editorconfig.editorconfig"
-	]
-}

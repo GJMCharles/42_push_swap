@@ -5,37 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: grcharle <grcharle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/19 23:59:44 by grcharle          #+#    #+#              #
-#    Updated: 2025/10/19 23:59:45 by grcharle         ###   ########.fr        #
+#    Created: 2025/10/28 22:50:27 by grcharle          #+#    #+#              #
+#    Updated: 2025/10/28 22:50:29 by grcharle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := push_swap
-NAME_BONUS := checker
+NAME		:= push_swap
+NAME_BONUS	:= checker
 
-RM := rm -frv
-CC := cc
-CFLAGS := -Wall -Wextra -Werror
-MAKEFLAGS := --no-print-directory
+RM			:= rm -frv
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror
+MAKEFLAGS	:= --no-print-directory
 
-LIBFT_SRC := ./libft
+LIBFT_SRC	:= ./libft
 
-LDFLAGS := -I. -I$(LIBFT_SRC)
-LDLIBS := -L$(LIBFT_SRC) -lft
+LDFLAGS		:= -I./includes -I$(LIBFT_SRC)
+LDLIBS		:= -L$(LIBFT_SRC) -lft
 
-SOURCES := \
-	main.c \
-	utils.c \
-	extract_integers.c \
-	resolver.c \
-	actions.c \
-	command_push.c \
-	command_rotate.c \
-	command_reverse_rotate.c \
-	command_swap.c \
-	manage_content.c
+SOURCES		:= src/main.c \
+			src/parsing.c \
+			src/errors.c \
+			src/stack_utils.c \
+			src/ops_swap.c \
+			src/ops_push.c \
+			src/ops_rotate.c \
+			src/ops_revrotate.c \
+			src/sort_small.c \
+			src/radix.c \
+			src/ranks.c \
+			src/utils.c
 
-OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
+OBJECTS		:= $(patsubst %.c,%.o,$(SOURCES))
 
 all: LIBS $(NAME)
 
@@ -61,3 +62,7 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus clean fclean re
+
+# For testing / debuging
+# make re && clear && ARG="$(shuf -i 0-100 -n 100 | tr '\n' ' ')"; valgrind --leak-check=full --show-leak-kinds=all -s ./push_swap $ARG | wc -l
+# make re && clear && ARG="$(shuf -i 0-500 -n 500 | tr '\n' ' ')"; valgrind --leak-check=full --show-leak-kinds=all -s ./push_swap $ARG | wc -l
